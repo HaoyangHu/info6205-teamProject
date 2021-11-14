@@ -1,5 +1,3 @@
-package main.java;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,11 +63,23 @@ public class MSDRadixSort {
         return true;
     }
 
-    public static void main(String[] args) {
+    public static void run(){
         setNames();
         sort(namesArray);
         System.out.println(isSorted());
+    }
 
+    public static void run(String[][] a){
+        sort(a);
+        for(String[] st : a){
+            System.out.println(st[0] + " " + st[1]);
+        }
+        System.out.println(isSorted());
+    }
+
+    public static void main(String[] args) {
+
+        run();
     }
 
 }
