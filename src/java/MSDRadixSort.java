@@ -6,6 +6,7 @@ public class MSDRadixSort {
     static String[][] namesArray;
     static int len = 0;
     static final int R = 256;
+    private static final int cutoff = 15;
     public static void setNames(){
         Initalize.init(names);
         MSDRadixSort.len = names.size();
@@ -31,7 +32,11 @@ public class MSDRadixSort {
     }
 
     private static void sort(String[][] a, String[][] aux, int lo, int hi, int d) {
-        if (hi <= lo) return;
+        if (hi < lo + cutoff){
+            InsertionSortMSD.sort(a, lo, hi, d);
+            return;
+        }
+
         int[] count = new int[R + 2];
         for (int i = lo; i <= hi; i++){
             count[charAt(a[i][0], d) + 2]++;
@@ -53,9 +58,9 @@ public class MSDRadixSort {
     }
 
 
-    public static boolean isSorted(){
+    public static boolean isSorted(String[][] a){
         for(int i = 0; i < len - 1; i++){
-            if(namesArray[i][0].compareTo(namesArray[i + 1][0]) > 0){
+            if(a[i][0].compareTo(a[i + 1][0]) > 0){
                 return false;
             }
 
@@ -66,7 +71,7 @@ public class MSDRadixSort {
     public static void run(){
         setNames();
         sort(namesArray);
-        System.out.println(isSorted());
+        System.out.println(isSorted(namesArray));
     }
 
     public static void run(String[][] a){
@@ -74,7 +79,7 @@ public class MSDRadixSort {
         for(String[] st : a){
             System.out.println(st[0] + " " + st[1]);
         }
-        System.out.println(isSorted());
+        System.out.println(isSorted(a));
     }
 
     public static void main(String[] args) {
