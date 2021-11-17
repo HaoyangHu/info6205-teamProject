@@ -2,21 +2,56 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MSDRadixSort {
-    static List<Name> names = new ArrayList<>();
-    static String[][] namesArray;
-    static int len = 0;
     static final int R = 256;
     private static final int cutoff = 15;
-    public static void setNames(){
-        Initalize.init(names);
-        MSDRadixSort.len = names.size();
-        namesArray = new String[len][2];
+    static String[][] names;
+    static int len;
 
+    static{
+        len = NameData.len;
+        System.out.println(len);
+        names = new String[len][2];
         for(int i = 0; i < len; i++){
-            namesArray[i][0] = names.get(i).pinyin;
-            namesArray[i][1] = names.get(i).name;
+            names[i][0] = NameData.namesArray[i][0];
+            names[i][1] = NameData.namesArray[i][1];
+        }
+    }
+
+    private static void ThreeWaySort(String[][] a){
+        sort(a, 0, a.length - 1, 0);
+    }
+
+    private static void exch(String[][] a, int i, int j){
+        String s1 = a[i][0], s2 = a[i][1];
+        a[i][0] = a[j][0];
+        a[i][1] = a[j][1];
+        a[j][0] = s1;
+        a[j][1] = s2;
+    }
+
+    private static void sort(String[][] a, int lo, int hi, int d){
+        if(hi <= lo){
+            return;
+        }
+        int lt = lo, gt = hi;
+        int v = charAt(a[lo][0], d);
+        int i = lo + 1;
+        while(i <= gt){
+            int t = charAt(a[i][0], d);
+            if(t < v){
+                exch(a, lt++, i++);
+            }else if(t > v){
+                exch(a, i, gt--);
+            }else{
+                i++;
+            }
         }
 
+        sort(a, lo, lt - 1, d);
+        if(v >= 0){
+            sort(a, lt, gt, d + 1);
+        }
+        sort(a, gt + 1, hi, d);
     }
 
     public static int charAt(String s, int d){
@@ -30,6 +65,8 @@ public class MSDRadixSort {
         String[][] aux = new String[a.length][2];
         sort(a, aux, 0, a.length - 1, 0);
     }
+
+
 
     private static void sort(String[][] a, String[][] aux, int lo, int hi, int d) {
         if (hi < lo + cutoff){
@@ -58,20 +95,26 @@ public class MSDRadixSort {
     }
 
 
-    public static boolean isSorted(String[][] a){
-        for(int i = 0; i < len - 1; i++){
-            if(a[i][0].compareTo(a[i + 1][0]) > 0){
-                return false;
-            }
 
-        }
-        return true;
-    }
 
     public static void run(){
-        setNames();
-        sort(namesArray);
-        System.out.println(isSorted(namesArray));
+
+        sort(names);
+        System.out.println(IsSorted.isSorted(names));
+    }
+
+    public static void runThreeWay(String[][] a){
+        ThreeWaySort(a);
+        for(String[] aa : a){
+            System.out.println(aa[0] + " " + aa[1]);
+        }
+        System.out.println(IsSorted.isSorted(a));
+    }
+
+    /*sort interface*/
+    public static void runThreeWay(){
+        ThreeWaySort(names);
+        System.out.println(IsSorted.isSorted(names));
     }
 
     public static void run(String[][] a){
@@ -79,12 +122,12 @@ public class MSDRadixSort {
         for(String[] st : a){
             System.out.println(st[0] + " " + st[1]);
         }
-        System.out.println(isSorted(a));
+        System.out.println(IsSorted.isSorted(a));
     }
 
     public static void main(String[] args) {
 
-        run();
+        runThreeWay();
     }
 
 }
