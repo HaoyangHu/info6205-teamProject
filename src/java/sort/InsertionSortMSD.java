@@ -1,3 +1,5 @@
+package sort;
+import main.*;
 public class InsertionSortMSD {
     public static void sort(String[][] a, int lo, int hi, int d) {
         for (int i = lo; i <= hi; i++)

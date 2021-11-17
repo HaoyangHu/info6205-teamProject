@@ -1,11 +1,16 @@
+package main;
+
+import main.Initalize;
+import main.Name;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class NameData {
 
-    static List<Name> names = new ArrayList<>();
-    static String[][] namesArray;
-    static int len = 0;
+    public static List<Name> names = new ArrayList<>();
+    public static String[][] namesArray;
+    public static int len = 0;
 
     static{
         if(len == 0){

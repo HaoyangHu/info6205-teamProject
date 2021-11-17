@@ -1,3 +1,5 @@
+package main;
+
 public class IsSorted {
     public static boolean isSorted(String[][] a){
         int n = a.length;

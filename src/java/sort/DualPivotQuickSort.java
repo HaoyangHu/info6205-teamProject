@@ -1,3 +1,5 @@
+package sort;
+import main.*;
 public class DualPivotQuickSort {
 
     static String[][] names;
@@ -15,6 +17,10 @@ public class DualPivotQuickSort {
     public static void sort(Comparable[][] a) {
         sort(a, 0, a.length - 1);
 
+    }
+
+    public static void sort(int l, int r){
+        sort(names, l, r - 1);
     }
 
     public static void sort(){

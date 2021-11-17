@@ -1,4 +1,9 @@
+package test;
+
 import org.junit.jupiter.api.Test;
+import sort.InsertionSortMSD;
+import sort.MSDRadixSort;
+import sort.TimeSort;
 
 
 public class SortTest {
@@ -44,7 +49,7 @@ public class SortTest {
                 {"zhi3 xiang1 zi3", "纸箱子"},
 
         };
-        MSDRadixSort.runThreeWay(test);
+        MSDRadixSort.sort(test);
         for(int i = 0; i < test.length; i++){
             assert (test[i][0].equals(ans[i][0]));
         }
@@ -92,7 +97,7 @@ public class SortTest {
                 {"zhi3 xiang1 zi3", "纸箱子"},
 
         };
-        MSDRadixSort.run(test);
+        MSDRadixSort.sort(test);
         for(int i = 0; i < test.length; i++){
             assert (test[i][0].equals(ans[i][0]));
         }

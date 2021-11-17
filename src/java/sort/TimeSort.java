@@ -1,3 +1,5 @@
+package sort;
+import main.*;
 import java.util.Arrays;
 
 public class TimeSort {
@@ -15,6 +17,11 @@ public class TimeSort {
 
     public static void timSort(){
         Arrays.sort(names, (o1, o2)-> o1[0].compareTo(o2[0]));
+        System.out.println(IsSorted.isSorted(names));
+    }
+
+    public static void timSort(int l, int r){
+        Arrays.sort(names, l, r, (o1, o2)-> o1[0].compareTo(o2[0]));
         System.out.println(IsSorted.isSorted(names));
     }
 

@@ -1,6 +1,8 @@
+package main;
+
 public class Name {
-    String name;
-    String pinyin;
+    public String name;
+    public String pinyin;
 
     public Name(String name){
         this.name = name;
