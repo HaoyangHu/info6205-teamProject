@@ -3,6 +3,7 @@ package sort;
 import edu.neu.coe.huskySort.sort.huskySort.MergeHuskySort;
 import edu.neu.coe.huskySort.sort.huskySort.QuickHuskySort;
 import edu.neu.coe.huskySort.sort.huskySortUtils.HuskyCoderFactory;
+import edu.neu.coe.huskySort.sort.huskySortUtils.HuskySortable;
 import edu.neu.coe.huskySort.util.Config;
 import preprocess.NameData;
 import edu.neu.coe.huskySort.*;
@@ -14,92 +15,63 @@ import static org.junit.Assert.assertTrue;
 public class HuskySortImplementation {
 
     static int len;
-    static String[] names;
+    static Node[] nodeNames;
     static{
-
+        try {
+            config = Config.load(HuskySortImplementation.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         len = NameData.len;
-        names = new String[len];
+        nodeNames = new Node[len];
         for(int i = 0; i < len; i++){
-            names[i] = NameData.namesArray[i][0];
+            nodeNames[i] = new Node(NameData.namesArray[i][0], NameData.namesArray[i][1]);
         }
 
     }
 
-    /*public static void sort() {
-
-        sort(names, 0, len - 1);
-    }*/
-
-   /* private static void sort(Node[] a, int lo, int hi) {
-        if (hi <= lo) return;
-        int lt = lo, gt = hi;
-        long v = a[lo].longNum;
-        int i = lo;
-        while (i <= gt)
-            if      (less(v, a[i].longNum)) exch(a, i, gt--);
-            else if (less(a[i].longNum, v)) exch(a, lt++, i++);
-            else                    i++;
-
-        sort(a, lo, lt - 1);
-        sort(a, gt + 1, hi);
-    }*/
-
-    private static boolean less(double v, double w) {
-        return v < w;
+    public static void sort(Node[] node){
+        QuickHuskySort<Node> sorter = new QuickHuskySort<>(Node::huskyCode, config);
+        System.out.println(sorter.getHelper().sorted(sorter.sort(node)));
     }
 
-    private static void exch(Node[] a, int i, int j) {
-        Node t = a[i];
-        a[i] = a[j];
-        a[j] = t;
+    public static void sort(int l, int r){
+        Node[] temp = new Node[r + 1];
+        int p = 0;
+        for(int i = l; i <= r; i++){
+            temp[p++] = nodeNames[i];
+        }
+        QuickHuskySort<Node> sorter = new QuickHuskySort<>(Node::huskyCode, config);
+        System.out.println(sorter.getHelper().sorted(sorter.sort(temp)));
     }
 
+    public static void sort(){
+
+        QuickHuskySort<Node> sorter = new QuickHuskySort<>(Node::huskyCode, config);
+        System.out.println(sorter.getHelper().sorted(sorter.sort(nodeNames)));
+    }
+
+    private static Config config;
 
     public static void main(String[] args) throws IOException {
 
-       /*sort();
-        int index = 1;
-        for(Node n : names){
-            System.out.println(index + " " + n.str);
-            index++;
-        }*/
+        QuickHuskySort<Node> sorter = new QuickHuskySort<>(Node::huskyCode, config);
+        System.out.println(sorter.getHelper().sorted(sorter.sort(nodeNames)));
+        for(Node n : nodeNames){
+            System.out.println(n);
+        }
 
-        Config config = Config.load(HuskySortImplementation.class);
-        //String[] xs = {"Hello", "Goodbye", "Ciao", "Willkommen"};
-        QuickHuskySort<String> sorter = new QuickHuskySort<>(HuskyCoderFactory.asciiCoder, config);
-        System.out.println(sorter.getHelper().sorted(sorter.sort(names)));
-        //assertTrue("sorted", sorter.getHelper().sorted(sorter.sort(xs)));
 
     }
 
-    private static long stringToLong(final String str, final int maxLength, final int bitWidth, final int mask) {
-        final int length = Math.min(str.length(), maxLength);
-        final int padding = maxLength - length;
-        long result = 0L;
-        if (((mask ^ 0xFFFF) & 0xFFFF) == 0)
-            for (int i = 0; i < length; i++) result = result << bitWidth | str.charAt(i);
-        else
-            for (int i = 0; i < length; i++) result = result << bitWidth | str.charAt(i) & mask;
-        result = result << bitWidth * padding;
-        return result;
-    }
-
-    static class Node implements Comparable<Node>{
+    static class Node implements HuskySortable<Node> {
         String name;
         String str;
-        //Long longNum;
+        long longNum;
         public Node(String str, String name){
             this.str = str;
             this.name = name;
-            /*str = str.replace("1", "");
-            str = str.replace("2", "");
-            str = str.replace("3", "");
-            str = str.replace("4", "");
-            str = str.replace("5", "");*/
-            //str = str.replace(" ", "");
-
-            this.str = str;
-            //longNum = stringToLong(this.str, 10, 6, 0x3F);
+            longNum = huskyCode();
 
         }
 
@@ -108,10 +80,17 @@ public class HuskySortImplementation {
             return this.str.compareTo(o.str);
         }
 
-        /*@Override
-        public int compareTo(Node o) {
-            return Long.compare(this.longNum, o.longNum);
-        }*/
+        @Override
+        public long huskyCode() {
+            if(longNum == 0l){
+                longNum = HuskyCoderFactory.asciiToLong(str);
+            }
+            return longNum;
+        }
+        @Override
+        public String toString() {
+            return name;
+        }
     }
 
 }

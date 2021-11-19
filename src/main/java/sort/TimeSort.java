@@ -37,7 +37,7 @@ public class TimeSort {
         timSort();
         int index = 1;
         for(String[] s : names){
-            System.out.println(index +" " + s[0]);
+            System.out.println(index +" " + s[1]);
             index++;
         }
     }

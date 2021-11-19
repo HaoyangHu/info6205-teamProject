@@ -79,7 +79,7 @@ public final class QuickHuskySort<X extends Comparable<X>> extends AbstractHusky
         int lt = lo, gt = hi;
         if (longs[lo] > longs[hi]) swap(objects, lo, hi);
         long v = longs[lo];
-
+        //System.out.println(objects[lo]);
         int i = lo + 1;
         while (i <= gt) {
             if (longs[i] < v) swap(objects, lt++, i++);
