@@ -5,9 +5,11 @@ package edu.neu.coe.huskySort.sort.huskySort;
 
 import edu.neu.coe.huskySort.sort.huskySortUtils.HuskyCoder;
 import edu.neu.coe.huskySort.util.Config;
+import sort.HuskySortImplementation;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
+
 
 public final class QuickHuskySort<X extends Comparable<X>> extends AbstractHuskySort<X> {
 
@@ -57,6 +59,7 @@ public final class QuickHuskySort<X extends Comparable<X>> extends AbstractHusky
      * @param to   the index of the first element not to sort.
      */
     public void sort(X[] xs, int from, int to) {
+
         quickSort(xs, getHelper().getLongs(), from, to - 1);
     }
 
@@ -76,6 +79,7 @@ public final class QuickHuskySort<X extends Comparable<X>> extends AbstractHusky
         int lt = lo, gt = hi;
         if (longs[lo] > longs[hi]) swap(objects, lo, hi);
         long v = longs[lo];
+
         int i = lo + 1;
         while (i <= gt) {
             if (longs[i] < v) swap(objects, lt++, i++);
@@ -94,4 +98,5 @@ public final class QuickHuskySort<X extends Comparable<X>> extends AbstractHusky
             this.gt = gt;
         }
     }
+
 }

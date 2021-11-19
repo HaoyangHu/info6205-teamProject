@@ -96,6 +96,8 @@ public class HuskySortTest {
         assertTrue("sorted", sorter.getHelper().sorted(sorter.sort(xs)));
     }
 
+
+
     @Test
     public void testSortString2() {
         final Config config = ConfigTest.setupConfig("true", "0", "1", "", "");

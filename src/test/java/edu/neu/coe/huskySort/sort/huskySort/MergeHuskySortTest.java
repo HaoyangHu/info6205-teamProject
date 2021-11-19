@@ -15,7 +15,7 @@ public class MergeHuskySortTest {
 
     @Test
     public void testSortString1() {
-        String[] xs = {"Hello", "Goodbye", "Ciao", "Willkommen"};
+        String[] xs = {"zhan4 zun1", "zhang1 xue3", "Ciao", "Willkommen"};
         MergeHuskySort<String> sorter = new MergeHuskySort<>(HuskyCoderFactory.unicodeCoder);
         sorter.sort(xs);
         assertTrue("sorted", helper.sorted(xs));
