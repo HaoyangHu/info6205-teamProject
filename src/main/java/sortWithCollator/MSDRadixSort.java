@@ -72,11 +72,14 @@ public class MSDRadixSort {
 
     public static void main(String[] args) {
 
-        init();
-        sort(names);
-        for(String name : names){
+        //init();
+        //sort(names);
+        String[] test = new String[]{"张三", "李四"};
+        System.out.println(test[0].charAt(0));
+        /*sort(test);
+        for(String name : test){
             System.out.println(name);
-        }
+        }*/
         //System.out.println(IsSorted.isSorted(names));
 
     }

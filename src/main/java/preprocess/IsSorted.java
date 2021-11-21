@@ -12,7 +12,7 @@ public class IsSorted {
         return true;
     }
 
-    public static boolean isSorted(Name[] a){
+    public static boolean isSorted(String[] a){
         int n = a.length;
         for(int i = 0; i < n - 1; i++){
             if(a[i].compareTo(a[i + 1]) > 0){

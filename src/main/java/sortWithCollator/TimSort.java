@@ -24,22 +24,22 @@ public class TimSort {
 
     private static Collator collator = Collator.getInstance(Locale.CHINA);
 
-    public static void timSort(){
+    public static void sort(){
         Arrays.sort(names, (o1, o2)-> collator.compare(o1, o2));
     }
 
-    public static void timSort(int l, int r){
+    public static void sort(int l, int r){
         Arrays.sort(names, l, r, (o1, o2)-> collator.compare(o1, o2));
     }
 
-    public static void timSort(String[] a){
+    public static void sort(String[] a){
         Arrays.sort(a, (o1, o2)-> collator.compare(o1, o2));
     }
 
     public static void main(String[] args) {
         init();
         System.out.println("begin sorting");
-        timSort();
+        sort();
         int index = 1;
         for(String s : names){
             System.out.println(index +" " + s);

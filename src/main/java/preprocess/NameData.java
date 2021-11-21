@@ -8,14 +8,12 @@ public class NameData {
     public static List<Name> names = new ArrayList<>();
     public static String[][] namesArray;
     public static int len = 0;
-
     static{
         if(len == 0){
             setNames();
 
         }
     }
-
     public static void setNames(){
         Initalize.init(names);
         len = names.size();
