@@ -8,7 +8,7 @@ public class TimeSort {
     static String[][] names;
     static int len;
 
-    static{
+    public static void init(){
         len = NameData.len;
         names = new String[len][2];
         for(int i = 0; i < len; i++){
@@ -18,23 +18,24 @@ public class TimeSort {
 
     }
 
-    public static void timSort(){
+    public static void sort(){
         Arrays.sort(names, (o1, o2)-> o1[0].compareTo(o2[0]));
         System.out.println(IsSorted.isSorted(names));
     }
 
-    public static void timSort(int l, int r){
+    public static void sort(int l, int r){
         Arrays.sort(names, l, r, (o1, o2)-> o1[0].compareTo(o2[0]));
         System.out.println(IsSorted.isSorted(names));
     }
 
-    public static void timSort(String[][] a){
+    public static void sort(String[][] a){
         Arrays.sort(a, (o1, o2)-> o1[0].compareTo(o2[0]));
         System.out.println(IsSorted.isSorted(a));
     }
 
     public static void main(String[] args) {
-        timSort();
+        init();
+        sort();
         int index = 1;
         for(String[] s : names){
             System.out.println(index +" " + s[1]);

@@ -9,7 +9,7 @@ public class MSDRadixSort {
     static String[][] names;
     static int len;
 
-    static{
+    public static void init(){
         len = NameData.len;
         names = new String[len][2];
         for(int i = 0; i < len; i++){
@@ -59,6 +59,7 @@ public class MSDRadixSort {
     }
 
     /*sort interface*/
+
     public static void sort(){
         sort(names, 0, len - 1, 0);
     }
@@ -72,7 +73,7 @@ public class MSDRadixSort {
     }
 
     public static void main(String[] args) {
-
+        init();
         sort();
         System.out.println(IsSorted.isSorted(names));
 

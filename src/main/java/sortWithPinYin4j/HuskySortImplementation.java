@@ -16,12 +16,14 @@ public class HuskySortImplementation {
     static int len;
     static Node[] nodeNames;
     static Name[] names;
+    static QuickHuskySort<Node> sorter;
     public static void init(){
         try {
             config = Config.load(HuskySortImplementation.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        sorter = new QuickHuskySort<>(Node::huskyCode, config);
         len = NameData.len;
         nodeNames = new Node[len];
         names = new Name[len];
@@ -33,7 +35,7 @@ public class HuskySortImplementation {
     }
 
     public static void sort(Node[] node){
-        QuickHuskySort<Node> sorter = new QuickHuskySort<>(Node::huskyCode, config);
+
         System.out.println(sorter.getHelper().sorted(sorter.sort(node)));
     }
 
@@ -43,13 +45,13 @@ public class HuskySortImplementation {
         for(int i = l; i <= r; i++){
             temp[p++] = nodeNames[i];
         }
-        QuickHuskySort<Node> sorter = new QuickHuskySort<>(Node::huskyCode, config);
+
         System.out.println(sorter.getHelper().sorted(sorter.sort(temp)));
     }
 
     public static void sort(){
 
-        QuickHuskySort<Node> sorter = new QuickHuskySort<>(Node::huskyCode, config);
+
         System.out.println(sorter.getHelper().sorted(sorter.sort(nodeNames)));
     }
 
@@ -59,7 +61,7 @@ public class HuskySortImplementation {
 
         init();
         System.out.println("begin sorting");
-        QuickHuskySort<Node> sorter = new QuickHuskySort<>(Node::huskyCode, config);
+
         System.out.println(sorter.getHelper().sorted(sorter.sort(nodeNames)));
         for(Node n : nodeNames){
             System.out.println(n);
