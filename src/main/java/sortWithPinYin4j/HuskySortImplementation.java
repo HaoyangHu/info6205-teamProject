@@ -1,12 +1,11 @@
-package sort;
+package sortWithPinYin4j;
 
-import edu.neu.coe.huskySort.sort.huskySort.MergeHuskySort;
 import edu.neu.coe.huskySort.sort.huskySort.QuickHuskySort;
 import edu.neu.coe.huskySort.sort.huskySortUtils.HuskyCoderFactory;
 import edu.neu.coe.huskySort.sort.huskySortUtils.HuskySortable;
 import edu.neu.coe.huskySort.util.Config;
+import preprocess.Name;
 import preprocess.NameData;
-import edu.neu.coe.huskySort.*;
 
 import java.io.IOException;
 
@@ -16,7 +15,8 @@ public class HuskySortImplementation {
 
     static int len;
     static Node[] nodeNames;
-    static{
+    static Name[] names;
+    public static void init(){
         try {
             config = Config.load(HuskySortImplementation.class);
         } catch (IOException e) {
@@ -24,8 +24,10 @@ public class HuskySortImplementation {
         }
         len = NameData.len;
         nodeNames = new Node[len];
+        names = new Name[len];
         for(int i = 0; i < len; i++){
             nodeNames[i] = new Node(NameData.namesArray[i][0], NameData.namesArray[i][1]);
+            names[i] = NameData.names.get(i);
         }
 
     }
@@ -55,6 +57,8 @@ public class HuskySortImplementation {
 
     public static void main(String[] args) throws IOException {
 
+        init();
+        System.out.println("begin sorting");
         QuickHuskySort<Node> sorter = new QuickHuskySort<>(Node::huskyCode, config);
         System.out.println(sorter.getHelper().sorted(sorter.sort(nodeNames)));
         for(Node n : nodeNames){
@@ -64,7 +68,7 @@ public class HuskySortImplementation {
 
     }
 
-    static class Node implements HuskySortable<Node> {
+    public static class Node implements HuskySortable<Node> {
         String name;
         String str;
         long longNum;
@@ -83,7 +87,7 @@ public class HuskySortImplementation {
         @Override
         public long huskyCode() {
             if(longNum == 0l){
-                longNum = HuskyCoderFactory.asciiToLong(str);
+                longNum = HuskyCoderFactory.asciiToLong(name);
             }
             return longNum;
         }

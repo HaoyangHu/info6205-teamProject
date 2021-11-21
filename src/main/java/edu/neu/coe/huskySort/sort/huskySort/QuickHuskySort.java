@@ -5,7 +5,6 @@ package edu.neu.coe.huskySort.sort.huskySort;
 
 import edu.neu.coe.huskySort.sort.huskySortUtils.HuskyCoder;
 import edu.neu.coe.huskySort.util.Config;
-import sort.HuskySortImplementation;
 
 import java.util.Arrays;
 import java.util.function.Consumer;

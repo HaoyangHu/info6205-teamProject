@@ -1,4 +1,4 @@
-package sort;
+package sortWithPinYin4j;
 
 import preprocess.IsSorted;
 import preprocess.NameData;
