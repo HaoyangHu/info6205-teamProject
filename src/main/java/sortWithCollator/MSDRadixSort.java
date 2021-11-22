@@ -1,21 +1,29 @@
 package sortWithCollator;
 
 import preprocess.IsSorted;
+import preprocess.MakeMSD;
 import preprocess.NameData;
 
+import java.util.Map;
+
 public class MSDRadixSort {
-    static final int R = 256;
+    static final int R = 2270;
     private static final int cutoff = 15;
     static String[] names;
     static int len;
+    static Map<Character, Integer> map;
+    static{
+        map = MakeMSD.getMap();
+    }
+
 
     public static void init(){
         len = NameData.len;
         names = new String[len];
         for(int i = 0; i < len; i++){
             names[i] = NameData.namesArray[i][1];
-
         }
+
     }
 
     private static void exch(String[] a, int i, int j){
@@ -52,7 +60,7 @@ public class MSDRadixSort {
 
     public static int charAt(String s, int d){
         if(d < s.length()){
-            return s.charAt(d);
+            return map.get(s.charAt(d));
         }
         return -1;
     }
@@ -71,16 +79,11 @@ public class MSDRadixSort {
     }
 
     public static void main(String[] args) {
+        map = MakeMSD.getMap();
+        init();
+        System.out.println("start sorting");
+        sort(names);
 
-        //init();
-        //sort(names);
-        String[] test = new String[]{"张三", "李四"};
-        System.out.println(test[0].charAt(0));
-        /*sort(test);
-        for(String name : test){
-            System.out.println(name);
-        }*/
-        //System.out.println(IsSorted.isSorted(names));
 
     }
 }
