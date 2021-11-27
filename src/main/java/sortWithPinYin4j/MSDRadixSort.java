@@ -75,6 +75,7 @@ public class MSDRadixSort {
     public static void main(String[] args) {
         init();
         sort();
+        System.out.println(names[0][1]);
         System.out.println(IsSorted.isSorted(names));
 
     }

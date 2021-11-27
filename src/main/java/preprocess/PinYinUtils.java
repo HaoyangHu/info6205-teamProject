@@ -8,7 +8,7 @@ public class PinYinUtils {
 
 
     public static String toPinYin(String content) {
-        return toPinYin(content, " ", false, null);
+        return toPinYin(content, "", false, null);
     }
 
     public static String toPinYin(String content, String spera, boolean firstUpperCase, HanyuPinyinOutputFormat format) {
