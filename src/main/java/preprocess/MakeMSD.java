@@ -31,9 +31,10 @@ public class MakeMSD {
         initWords();
         Arrays.sort(words, (o1, o2) -> o1.pinyin.compareTo(o2.pinyin));
         order = new HashMap<>();
-        for(int i = 0; i < words.length; i++){
+        order.put(' ', 0);
+        for(int i = 1; i <= words.length; i++){
             //System.out.println(words[i].word);
-            order.put(words[i].word, i);
+            order.put(words[i - 1].word, i);
         }
     }
 
