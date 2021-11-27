@@ -7,16 +7,15 @@ import preprocess.NameData;
 import java.util.Map;
 
 public class MSDRadixSort {
-    static final int R = 2270;
+    static int R = 0;
     private static final int cutoff = 15;
     static String[] names;
     static int len;
     static Map<Character, Integer> map;
     static{
         map = MakeMSD.getMap();
+        R = map.size();
     }
-
-
     public static void init(){
         len = NameData.len;
         names = new String[len];
