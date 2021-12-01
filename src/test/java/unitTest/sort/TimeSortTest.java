@@ -1,9 +1,6 @@
 package unitTest.sort;
 
 import org.junit.Test;
-import sortWithCollator.TimSort;
-
-import static org.junit.Assert.*;
 
 public class TimeSortTest {
 

@@ -25,11 +25,8 @@ public class MSDRadixSort {
         a[j][0] = s1;
         a[j][1] = s2;
     }
-
     private static void sort(String[][] a, int lo, int hi, int d){
-        if(hi <= lo){
-            return;
-        }
+        if(hi <= lo) return;
         int lt = lo, gt = hi;
         int v = charAt(a[lo][0], d);
         int i = lo + 1;
@@ -43,18 +40,12 @@ public class MSDRadixSort {
                 i++;
             }
         }
-
         sort(a, lo, lt - 1, d);
-        if(v >= 0){
-            sort(a, lt, gt, d + 1);
-        }
+        if(v >= 0) sort(a, lt, gt, d + 1);
         sort(a, gt + 1, hi, d);
     }
-
     public static int charAt(String s, int d){
-        if(d < s.length()){
-            return s.charAt(d);
-        }
+        if(d < s.length()) return s.charAt(d);
         return -1;
     }
 

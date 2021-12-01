@@ -2,7 +2,7 @@ package benchmark.Utils;
 
 import preprocess.NameData;
 
-public class ArrayLengthChange {
+public class TwoDimensionalArrayLengthChange {
 
     public static String[][] generateAQuarterOfFiles(){
         String[][] aQuarterOfNames;

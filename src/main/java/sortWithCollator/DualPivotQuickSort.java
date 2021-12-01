@@ -10,8 +10,6 @@ import java.util.Locale;
 public class DualPivotQuickSort {
     static String[] names;
     static int len;
-
-
     public static void init(){
         len = NameData.len;
         System.out.println(len);
@@ -20,22 +18,12 @@ public class DualPivotQuickSort {
             names[i] = NameData.names.get(i).name;
         }
     }
-
     public static void sort(Comparable[] a) {
-
         sort(a, 0, a.length - 1);
-
     }
-
-
-
-    // quicksort the subarray a[lo .. hi] using dual-pivot quicksort
     private static void sort(Comparable[] a, int lo, int hi) {
         if (hi <= lo) return;
-
-        // make sure a[lo] <= a[hi]
         if (less(a[hi], a[lo])) exch(a, lo, hi);
-
         int lt = lo + 1, gt = hi - 1;
         int i = lo + 1;
         while (i <= gt) {
@@ -45,24 +33,15 @@ public class DualPivotQuickSort {
         }
         exch(a, lo, --lt);
         exch(a, hi, ++gt);
-
-        // recursively sort three subarrays
         sort(a, lo, lt-1);
         if (less(a[lt], a[gt])) sort(a, lt+1, gt-1);
         sort(a, gt+1, hi);
-
     }
-
     private static Collator collator = Collator.getInstance(Locale.CHINA);
-
-
     private static boolean less(Comparable v, Comparable w) {
         int res = collator.compare(v , w);
-
         return res >= 0 ? false : true;
     }
-
-
     private static void exch(Object[] a, int i, int j) {
         Object swap = a[i];
         a[i] = a[j];
