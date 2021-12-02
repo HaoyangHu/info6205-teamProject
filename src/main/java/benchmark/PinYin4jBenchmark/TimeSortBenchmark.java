@@ -15,7 +15,7 @@ public class TimeSortBenchmark {
 
         for (int i = 0; i < 8; i++) {
             String[][] aQuarterOfNames = TwoDimensionalArrayLengthChange.generateAHalfOfFiles();
-            Benchmark_Timer benchmark_timer = new Benchmark_Timer(" 250k test: ", null , (t)-> sortWithPinYin4j.TimeSort.sort(aQuarterOfNames), null );
+            Benchmark_Timer benchmark_timer = new Benchmark_Timer(" 250k test: ", null , (t)-> sortWithPinYin4j.TimeSort.sort(aQuarterOfNames, 250000), null );
             System.out.println(benchmark_timer.run(true, 100));
         }
 

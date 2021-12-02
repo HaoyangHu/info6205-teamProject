@@ -93,3 +93,5 @@
 2021-11-25 08:11:16 INFO  Benchmark_Timer - Begin run:  250k test:  with 100 runs
 2021-11-25 08:16:23 INFO  Benchmark_Timer - Begin run:  250k test:  with 100 runs
 2021-11-27 08:34:09 INFO  Benchmark_Timer - Begin run:  250K test:  with 100 runs
+2021-12-01 23:15:19 DEBUG Config - Config.get(helper, instrument) = false
+2021-12-01 23:19:05 DEBUG Config - Config.get(helper, instrument) = false

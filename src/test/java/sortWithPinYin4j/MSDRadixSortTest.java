@@ -6,14 +6,23 @@ import static org.junit.Assert.*;
 
 public class MSDRadixSortTest {
     @Test
-    public void test(){
+    public void test1(){
         String[][] test = new String[][]{{"zhang1 san1", "张三"}, {"li3 si4", "李四"}, {"wang2 wu3", "王五"}, {"zhao4 liu4", "赵六"}};
         MSDRadixSort.sort(test);
-        assert(test[0][1].equals("李四"));
-        assert(test[1][1].equals("王五"));
-        assert(test[2][1].equals("张三"));
-        assert(test[3][1].equals("赵六"));
+        assert(test[0][0].equals("li3 si4"));
+        assert(test[1][0].equals("wang2 wu3"));
+        assert(test[2][0].equals("zhang1 san1"));
+        assert(test[3][0].equals("zhao4 liu4"));
+    }
 
+    @Test
+    public void test2(){
+        String[][] test = new String[][]{{"zhang1 san1", "张三"}, {"zhan1 san1", "詹三"}, {"zhao4 san1", "赵三"}, {"zhao4 liu4", "赵六"}};
+        MSDRadixSort.sort(test);
+        assert(test[0][0].equals("zhan1 san1"));
+        assert(test[1][0].equals("zhang1 san1"));
+        assert(test[2][0].equals("zhao4 liu4"));
+        assert(test[3][0].equals("zhao4 san1"));
     }
 
 
