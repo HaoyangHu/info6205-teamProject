@@ -4,7 +4,7 @@ import benchmark.Utils.ArrayLengthChange;
 import benchmark.Utils.Benchmark_Timer;
 import sortWithCollator.ThreeWayStringQuicksort;
 
-public class CollatorMSDRadixSortBenchmark {
+public class CollatorThreeWayStringQuicksortBenchmark {
     public static void main(String[] args) {
         for (int i = 0; i < 8; i++) {
             String[] aQuarterOfNames = ArrayLengthChange.generateAQuarterOfFiles();

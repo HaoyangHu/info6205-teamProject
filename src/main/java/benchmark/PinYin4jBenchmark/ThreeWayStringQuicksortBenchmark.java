@@ -4,7 +4,7 @@ import benchmark.Utils.TwoDimensionalArrayLengthChange;
 import benchmark.Utils.Benchmark_Timer;
 import sortWithPinYin4j.ThreeWayStringQuicksort;
 
-public class MSDRadixSortBenchmark {
+public class ThreeWayStringQuicksortBenchmark {
 
 
     public static void main(String[] args) {
