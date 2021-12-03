@@ -19,6 +19,7 @@ public class DualPivotQuickSort {
         }
     }
     public static void sort(Comparable[] a) {
+        shuffle(a);
         sort(a, 0, a.length - 1);
     }
     private static void sort(Comparable[] a, int lo, int hi) {
@@ -46,6 +47,15 @@ public class DualPivotQuickSort {
         Object swap = a[i];
         a[i] = a[j];
         a[j] = swap;
+    }
+
+    public static void shuffle(Object[] a) {
+        for(int i = 0;i < a.length;i++){
+            int row = (int)(Math.random()*a.length);
+            Object temp = a[i];
+            a[i] = a[row];
+            a[row] = temp;
+        }
     }
 
     public static void main(String[] args) {

@@ -125,14 +125,13 @@ public class TimeSort {
         System.out.print("\n");
     }
 
-    public static void main(String[] args) {
-        init();
-        System.out.println("Start sorting");
-        sort(names, names.length);
+        public static void main(String[] args){
+            init();
+            System.out.println("Start sorting");
+            sort(names, names.length);
 
-        printArray(names, names.length);
-    }
-
+            printArray(names, names.length);
+        }
 
 }
 
