@@ -25,6 +25,16 @@ public class TwoDimensionalArrayLengthChange {
         return AHalfOfNames;
     }
 
+    public static String[][] generateAFile(){
+        int len = NameData.len;
+        String[][] Names = new String[len][2];
+        for(int i = 0; i < len; i++){
+            Names[i][0] = NameData.namesArray[i][0];
+            Names[i][1] = NameData.namesArray[i][1];
+        }
+        return Names;
+    }
+
     public static String[][] generateDoubleFiles(){
         int len = NameData.len * 2;
         String[][] DoubleNames = new String[len][2];
