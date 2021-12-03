@@ -6,7 +6,7 @@ import preprocess.NameData;
 
 import java.util.Map;
 
-public class MSDRadixSort {
+public class ThreeWayStringQuicksort {
     static int R = 0;
     private static final int cutoff = 15;
     static String[] names;

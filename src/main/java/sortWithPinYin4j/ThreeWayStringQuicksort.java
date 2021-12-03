@@ -3,7 +3,7 @@ package sortWithPinYin4j;
 import preprocess.IsSorted;
 import preprocess.NameData;
 
-public class MSDRadixSort {
+public class ThreeWayStringQuicksort {
     static final int R = 256;
     private static final int cutoff = 15;
     static String[][] names;
