@@ -250,3 +250,71 @@
 2021-12-03 01:02:58 INFO  Benchmark_Timer - Begin run: test1  with 100 runs
 2021-12-03 01:03:30 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
 2021-12-03 01:12:47 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 03:55:33 INFO  Benchmark_Timer - Begin run: test:  with 10 runs
+2021-12-03 03:55:34 INFO  Benchmark_Timer - Begin run: test1:  with 10 runs
+2021-12-03 03:56:22 INFO  Benchmark_Timer - Begin run: test:  with 10 runs
+2021-12-03 03:56:23 INFO  Benchmark_Timer - Begin run: test1:  with 10 runs
+2021-12-03 03:56:50 INFO  Benchmark_Timer - Begin run: test:  with 10 runs
+2021-12-03 03:56:51 INFO  Benchmark_Timer - Begin run: test1:  with 10 runs
+2021-12-03 12:27:28 INFO  Benchmark_Timer - Begin run: test:  with 10 runs
+2021-12-03 12:27:29 INFO  Benchmark_Timer - Begin run: test1:  with 10 runs
+2021-12-03 12:27:41 INFO  Benchmark_Timer - Begin run: test:  with 10 runs
+2021-12-03 12:27:42 INFO  Benchmark_Timer - Begin run: test1:  with 10 runs
+2021-12-03 12:30:08 INFO  Benchmark_Timer - Begin run: test1:  with 10 runs
+2021-12-03 12:30:48 INFO  Benchmark_Timer - Begin run: test:  with 10 runs
+2021-12-03 12:30:49 INFO  Benchmark_Timer - Begin run: test1:  with 10 runs
+2021-12-03 12:31:36 INFO  Benchmark_Timer - Begin run: MSD test:  with 10 runs
+2021-12-03 12:31:38 INFO  Benchmark_Timer - Begin run: Arrays.sort test1:  with 10 runs
+2021-12-03 12:40:04 INFO  Benchmark_Timer - Begin run: MSD test:  with 10 runs
+2021-12-03 12:40:06 INFO  Benchmark_Timer - Begin run: Arrays.sort test1:  with 10 runs
+2021-12-03 12:43:01 INFO  Benchmark_Timer - Begin run: MSD test:  with 10 runs
+2021-12-03 12:43:02 INFO  Benchmark_Timer - Begin run: TimSort test1:  with 10 runs
+2021-12-03 12:51:16 INFO  Benchmark_Timer - Begin run: MSD test:  with 10 runs
+2021-12-03 12:51:17 INFO  Benchmark_Timer - Begin run: TimSort test1:  with 10 runs
+2021-12-03 12:55:03 INFO  Benchmark_Timer - Begin run: MSD test:  with 10 runs
+2021-12-03 12:55:05 INFO  Benchmark_Timer - Begin run: TimSort test1:  with 10 runs
+2021-12-03 12:59:24 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 12:59:58 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:00:31 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:01:08 INFO  Benchmark_Timer - Begin run:  1M test:  with 10 runs
+2021-12-03 13:17:11 INFO  Benchmark_Timer - Begin run:  1M test:  with 10 runs
+2021-12-03 13:17:14 INFO  Benchmark_Timer - Begin run:  1M test:  with 10 runs
+2021-12-03 13:17:17 INFO  Benchmark_Timer - Begin run:  1M test:  with 10 runs
+2021-12-03 13:17:20 INFO  Benchmark_Timer - Begin run:  1M test:  with 10 runs
+2021-12-03 13:17:23 INFO  Benchmark_Timer - Begin run:  1M test:  with 10 runs
+2021-12-03 13:22:11 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:22:12 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:22:13 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:22:14 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:22:14 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:22:15 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:22:16 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:22:42 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:22:43 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:22:44 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:22:44 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:22:44 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:25:48 INFO  Benchmark_Timer - Begin run: test  with 100 runs
+2021-12-03 13:25:48 INFO  Benchmark_Timer - Begin run: test1  with 100 runs
+2021-12-03 13:26:36 INFO  Benchmark_Timer - Begin run: test  with 100 runs
+2021-12-03 13:26:36 INFO  Benchmark_Timer - Begin run: test1  with 100 runs
+2021-12-03 13:28:45 INFO  Benchmark_Timer - Begin run: test  with 100 runs
+2021-12-03 13:28:45 INFO  Benchmark_Timer - Begin run: test1  with 100 runs
+2021-12-03 13:29:44 INFO  Benchmark_Timer - Begin run: test  with 100 runs
+2021-12-03 13:29:44 INFO  Benchmark_Timer - Begin run: test1  with 100 runs
+2021-12-03 13:34:48 INFO  Benchmark_Timer - Begin run: test  with 100 runs
+2021-12-03 13:34:48 INFO  Benchmark_Timer - Begin run: test1  with 100 runs
+2021-12-03 13:35:37 INFO  Benchmark_Timer - Begin run:  1M test:  with 10 runs
+2021-12-03 13:36:14 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:36:16 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:36:19 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:36:42 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:37:03 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:37:21 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:48:46 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:48:49 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:48:51 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:49:52 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:50:14 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:50:33 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
+2021-12-03 13:50:53 INFO  Benchmark_Timer - Begin run:  250K test:  with 10 runs
