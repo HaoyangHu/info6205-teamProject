@@ -37,10 +37,11 @@ public class MSDradixSort {
     }
 
     // return dth character of s, -1 if d = length of string
-    private static int charAt(String s, int d) {
-
-        if (d >= s.length()) return -1;
-        return map.get(s.charAt(d));
+    public static int charAt(String s, int d){
+        if(d < s.length()){
+            return map.get(s.charAt(d));
+        }
+        return -1;
     }
 
     // sort from a[lo] to a[hi], starting at the dth character
@@ -68,11 +69,9 @@ public class MSDradixSort {
             int c = charAt(a[i], d);
             aux[count[c+1]++] = a[i];
         }
-
         // copy back
         for (int i = lo; i <= hi; i++)
             a[i] = aux[i - lo];
-
 
         // recursively sort for each character (excludes sentinel -1)
         for (int r = 0; r < R; r++)
@@ -82,9 +81,16 @@ public class MSDradixSort {
 
     // insertion sort a[lo..hi], starting at dth character
     private static void insertion(String[] a, int lo, int hi, int d) {
-        for (int i = lo; i <= hi; i++)
-            for (int j = i; j > lo && less(a[j], a[j-1], d); j--)
-                exch(a, j, j-1);
+        for (int i = lo; i <= hi; i++){
+            for (int j = i; j > lo ; j--){
+                if(less(a[j], a[j-1], d)) {
+                    exch(a, j, j - 1);
+                }
+
+            }
+
+        }
+
     }
 
     // exchange a[i] and a[j]
@@ -97,8 +103,8 @@ public class MSDradixSort {
     // is v less than w, starting at character d
     private static boolean less(String v, String w, int d) {
         for (int i = d; i < Math.min(v.length(), w.length()); i++) {
-            if (v.charAt(i) < w.charAt(i)) return true;
-            if (v.charAt(i) > w.charAt(i)) return false;
+            if (charAt(v, i) < charAt(w, i)) return true;
+            if (charAt(v, i) > charAt(w, i)) return false;
         }
         return v.length() < w.length();
     }
@@ -106,11 +112,8 @@ public class MSDradixSort {
 
     public static void main(String[] args) {
         init();
-        //sort(names);
-
-        String[] test = new String[]{"张三", "李四", "王五", "赵六"};
-        sort(test);
-        for(String s : test){
+        sort(names);
+        for(String s : names){
             System.out.println(s);
         }
     }

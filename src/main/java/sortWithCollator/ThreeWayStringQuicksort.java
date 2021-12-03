@@ -71,10 +71,9 @@ public class ThreeWayStringQuicksort {
     }
 
     private static boolean less(String v, String w, int d) {
-        assert v.substring(0, d).equals(w.substring(0, d));
         for (int i = d; i < Math.min(v.length(), w.length()); i++) {
-            if (v.charAt(i) < w.charAt(i)) return true;
-            if (v.charAt(i) > w.charAt(i)) return false;
+            if (charAt(v, i) < charAt(w, i)) return true;
+            if (charAt(v, i) > charAt(w, i)) return false;
         }
         return v.length() < w.length();
     }
