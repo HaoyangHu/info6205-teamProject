@@ -6,10 +6,8 @@ import preprocess.NameData;
 import java.util.Map;
 
 public class MSDradixSort {
-    private static final int BITS_PER_BYTE =   8;
-    private static final int BITS_PER_INT  =  32;   // each Java int is 32 bits
-    private static int R = 256;   // extended ASCII alphabet size
-    private static final int CUTOFF        =  15;   // cutoff to insertion sort
+    private static int R;   // extended ASCII alphabet size
+    private static final int CUTOFF = 15;   // cutoff to insertion sort
 
     static String[] names;
     static int len;
@@ -98,7 +96,6 @@ public class MSDradixSort {
 
     // is v less than w, starting at character d
     private static boolean less(String v, String w, int d) {
-        // assert v.substring(0, d).equals(w.substring(0, d));
         for (int i = d; i < Math.min(v.length(), w.length()); i++) {
             if (v.charAt(i) < w.charAt(i)) return true;
             if (v.charAt(i) > w.charAt(i)) return false;
@@ -109,9 +106,12 @@ public class MSDradixSort {
 
     public static void main(String[] args) {
         init();
-        sort(names);
-        for(int i = 0; i < 100; i++){
-            System.out.println(names[i]);
+        //sort(names);
+
+        String[] test = new String[]{"张三", "李四", "王五", "赵六"};
+        sort(test);
+        for(String s : test){
+            System.out.println(s);
         }
     }
 

@@ -5,7 +5,7 @@ import preprocess.NameData;
 
 public class ThreeWayStringQuicksort {
     static final int R = 256;
-    private static final int cutoff = 15;
+    private static final int CUTOFF = 15;
     static String[][] names;
     static int len;
 
@@ -25,8 +25,26 @@ public class ThreeWayStringQuicksort {
         a[j][0] = s1;
         a[j][1] = s2;
     }
+
+    private static boolean less(String v, String w, int d) {
+        for (int i = d; i < Math.min(v.length(), w.length()); i++) {
+            if (v.charAt(i) < w.charAt(i)) return true;
+            if (v.charAt(i) > w.charAt(i)) return false;
+        }
+        return v.length() < w.length();
+    }
+
+    private static void insertion(String[][] a, int lo, int hi, int d) {
+        for (int i = lo; i <= hi; i++)
+            for (int j = i; j > lo && less(a[j][0], a[j-1][0], d); j--)
+                exch(a, j, j-1);
+    }
+
     private static void sort(String[][] a, int lo, int hi, int d){
-        if(hi <= lo) return;
+        if (hi <= lo + CUTOFF) {
+            insertion(a, lo, hi, d);
+            return;
+        }
         int lt = lo, gt = hi;
         int v = charAt(a[lo][0], d);
         int i = lo + 1;
@@ -66,7 +84,7 @@ public class ThreeWayStringQuicksort {
     public static void main(String[] args) {
         init();
         sort();
-        System.out.println(names[0][1]);
+
         System.out.println(IsSorted.isSorted(names));
 
     }

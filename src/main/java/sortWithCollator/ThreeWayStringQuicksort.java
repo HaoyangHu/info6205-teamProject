@@ -7,8 +7,8 @@ import preprocess.NameData;
 import java.util.Map;
 
 public class ThreeWayStringQuicksort {
-    static int R = 0;
-    private static final int cutoff = 15;
+    static int R;
+    private static final int CUTOFF = 15;
     static String[] names;
     static int len;
     static Map<Character, Integer> map;
@@ -33,7 +33,8 @@ public class ThreeWayStringQuicksort {
     }
 
     private static void sort(String[] a, int lo, int hi, int d){
-        if(hi <= lo){
+        if (hi <= lo + CUTOFF) {
+            insertion(a, lo, hi, d);
             return;
         }
         int lt = lo, gt = hi;
@@ -57,6 +58,11 @@ public class ThreeWayStringQuicksort {
         sort(a, gt + 1, hi, d);
     }
 
+    private static void insertion(String[] a, int lo, int hi, int d) {
+        for (int i = lo; i <= hi; i++)
+            for (int j = i; j > lo && less(a[j], a[j-1], d); j--)
+                exch(a, j, j-1);
+    }
     public static int charAt(String s, int d){
         if(d < s.length()){
             return map.get(s.charAt(d));
@@ -64,6 +70,14 @@ public class ThreeWayStringQuicksort {
         return -1;
     }
 
+    private static boolean less(String v, String w, int d) {
+        assert v.substring(0, d).equals(w.substring(0, d));
+        for (int i = d; i < Math.min(v.length(), w.length()); i++) {
+            if (v.charAt(i) < w.charAt(i)) return true;
+            if (v.charAt(i) > w.charAt(i)) return false;
+        }
+        return v.length() < w.length();
+    }
     /*sort interface*/
     public static void sort(){
         sort(names, 0, len - 1, 0);
@@ -78,10 +92,12 @@ public class ThreeWayStringQuicksort {
     }
 
     public static void main(String[] args) {
-        map = MakeMSD.getMap();
         init();
         System.out.println("start sorting");
         sort(names);
+        for(String s : names){
+            System.out.println(s);
+        }
 
 
     }
