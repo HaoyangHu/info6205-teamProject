@@ -4,10 +4,13 @@ package sortWithPinYin4j;
 import preprocess.IsSorted;
 import preprocess.NameData;
 
+import java.util.Random;
+
 public class DualPivotQuickSort {
 
     static String[][] names;
     static int len;
+    static Random random;
 
     static{
         len = NameData.len;
@@ -19,6 +22,7 @@ public class DualPivotQuickSort {
     }
 
     public static void sort(Comparable[][] a) {
+        shuffle(a);
         sort(a, 0, a.length - 1);
 
     }
@@ -59,6 +63,20 @@ public class DualPivotQuickSort {
         a[i][1] = a[j][1];
         a[j][1] = swap1;
     }
+
+    public static void shuffle(Object[][] a) {
+        for(int i = 0;i < a.length;i++){
+            int row = (int)(Math.random()*a.length);
+            Object temp = a[i][0];
+            a[i][0] = a[row][0];
+            a[row][0] = temp;
+            Object temp1 = a[i][1];
+            a[i][1] = a[row][1];
+            a[row][1] = temp1;
+
+        }
+    }
+
 
 
     public static void main(String[] args) {
