@@ -10,16 +10,38 @@ import java.util.Locale;
 public class DualPivotQuickSort {
     static String[] names;
     static int len;
-    public static void init(){
-        len = NameData.len;
-        System.out.println(len);
+
+    public static void sort(int len){
+        String arr[][] = new NameData().getNamesArray();
         names = new String[len];
-        for(int i = 0; i < len; i++){
-            names[i] = NameData.names.get(i).name;
+        if(len <= 1000000){
+            for(int i = 0; i < len; i++){
+                names[i] = arr[i][1];
+            }
+        }else{
+            if(len == 2000000){
+                for(int i = 0; i < 1000000; i++){
+                    names[i] = arr[i][1];
+                }
+                for(int i = 1000000; i < 2000000; i++){
+                    names[i] = arr[i - 1000000][1];
+                }
+            }else{
+                for(int i = 0; i < 1000000; i++){
+                    names[i] = arr[i][1];
+                }
+                for(int i = 1000000; i < 2000000; i++){
+                    names[i] = arr[i - 1000000][1];
+                }
+                for(int i = 2000000; i < 4000000; i++){
+                    names[i] = names[i - 2000000];
+                }
+            }
         }
+        sort(names);
     }
+
     public static void sort(Comparable[] a) {
-        shuffle(a);
         sort(a, 0, a.length - 1);
     }
     private static void sort(Comparable[] a, int lo, int hi) {
@@ -59,13 +81,12 @@ public class DualPivotQuickSort {
     }
 
     public static void main(String[] args) {
-        init();
-        System.out.println("Begin sorting");
-        sort(names);
-        int count = 0;
+
+        sort(4000000);
+
         for(String n : names){
-            System.out.println(count + " " + n);
-            count++;
+            System.out.println(n);
+
 
         }
         //System.out.println(IsSorted.isSorted(names));

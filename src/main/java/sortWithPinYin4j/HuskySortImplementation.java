@@ -13,28 +13,54 @@ import static org.junit.Assert.assertTrue;
 
 public class HuskySortImplementation {
 
-    static int len;
+
     static Node[] nodeNames;
-    static Name[] names;
+
     static QuickHuskySort<Node> sorter;
-    public static void init(){
+    public static void sort(int len){
         try {
             config = Config.load(HuskySortImplementation.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
         sorter = new QuickHuskySort<>(Node::huskyCode, config);
-        len = NameData.len;
+
         nodeNames = new Node[len];
-        names = new Name[len];
-        for(int i = 0; i < len; i++){
-            nodeNames[i] = new Node(NameData.namesArray[i][0], NameData.namesArray[i][1]);
-            names[i] = NameData.names.get(i);
+        String[][] arr = new NameData().getNamesArray();
+        if(len <= 1000000){
+            for(int i = 0; i < len; i++){
+                nodeNames[i] = new Node(arr[i][0], arr[i][1]);
+            }
+        }else {
+            if (len == 2000000) {
+                for (int i = 0; i < 1000000; i++) {
+                    nodeNames[i] = new Node(arr[i][0], arr[i][1]);
+                }
+                for (int i = 1000000; i < 2000000; i++) {
+                    nodeNames[i] = new Node(arr[i - 1000000][0], arr[i - 1000000][1]);
+                }
+            } else {
+                for (int i = 0; i < 1000000; i++) {
+                    nodeNames[i] = new Node(arr[i][0], arr[i][1]);
+                }
+                for (int i = 1000000; i < 2000000; i++) {
+                    nodeNames[i] = new Node(arr[i - 1000000][0], arr[i - 1000000][1]);
+
+                }
+                for (int i = 2000000; i < 3000000; i++) {
+                    nodeNames[i] = new Node(arr[i - 2000000][0], arr[i - 2000000][1]);
+                }
+                for (int i = 3000000; i < 4000000; i++) {
+                    nodeNames[i] = new Node(arr[i - 3000000][0], arr[i - 3000000][1]);
+                }
+            }
+
         }
+       sort(nodeNames);
     }
     public static void sort(Node[] node){
 
-        System.out.println(sorter.getHelper().sorted(sorter.sort(node)));
+        sorter.getHelper().sorted(sorter.sort(node));
     }
 
     public static void sort(int l, int r){
@@ -53,9 +79,9 @@ public class HuskySortImplementation {
     private static Config config;
 
     public static void main(String[] args) throws IOException {
-        init();
+
         System.out.println("begin sorting");
-        System.out.println(sorter.getHelper().sorted(sorter.sort(nodeNames)));
+        sort(4000000);
         for(Node n : nodeNames){
             System.out.println(n);
         }

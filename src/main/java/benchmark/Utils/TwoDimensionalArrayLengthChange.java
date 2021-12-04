@@ -1,3 +1,4 @@
+/*
 package benchmark.Utils;
 
 import preprocess.NameData;
@@ -11,13 +12,15 @@ public class TwoDimensionalArrayLengthChange {
         int len = NameData.len / 4;
         aQuarterOfNames = new String[len][2];
         for(int i = 0; i < len; i++){
-            /*for(int j = 0; j < 10; j++){
+            */
+/*for(int j = 0; j < 10; j++){
                 aQuarterOfNames[i][0] += NameData.namesArray[i][0];
                 aQuarterOfNames[i][1] += NameData.namesArray[i][1];
             }
             List<String> temp = Arrays.asList(aQuarterOfNames[i][0].split(""));
             Collections.shuffle(temp);
-            aQuarterOfNames[i][0] = String.valueOf(temp);*/
+            aQuarterOfNames[i][0] = String.valueOf(temp);*//*
+
             aQuarterOfNames[i][0] = NameData.namesArray[i][0];
             aQuarterOfNames[i][1] = NameData.namesArray[i][1];
         }
@@ -83,3 +86,4 @@ public class TwoDimensionalArrayLengthChange {
 
 }
 
+*/

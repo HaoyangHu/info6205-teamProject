@@ -16,13 +16,34 @@ public class ThreeWayStringQuicksort {
         map = MakeMSD.getMap();
         R = map.size();
     }
-    public static void init(){
-        len = NameData.len;
+    public static void sort(int len){
+        String arr[][] = new NameData().getNamesArray();
         names = new String[len];
-        for(int i = 0; i < len; i++){
-            names[i] = NameData.namesArray[i][1];
+        if(len <= 1000000){
+            for(int i = 0; i < len; i++){
+                names[i] = arr[i][1];
+            }
+        }else{
+            if(len == 2000000){
+                for(int i = 0; i < 1000000; i++){
+                    names[i] = arr[i][1];
+                }
+                for(int i = 1000000; i < 2000000; i++){
+                    names[i] = arr[i - 1000000][1];
+                }
+            }else{
+                for(int i = 0; i < 1000000; i++){
+                    names[i] = arr[i][1];
+                }
+                for(int i = 1000000; i < 2000000; i++){
+                    names[i] = arr[i - 1000000][1];
+                }
+                for(int i = 2000000; i < 4000000; i++){
+                    names[i] = names[i - 2000000];
+                }
+            }
         }
-
+        sort(names);
     }
 
     private static void exch(String[] a, int i, int j){
@@ -91,9 +112,9 @@ public class ThreeWayStringQuicksort {
     }
 
     public static void main(String[] args) {
-        init();
+
         System.out.println("start sorting");
-        sort(names);
+        sort(4000000);
         for(String s : names){
             System.out.println(s);
         }

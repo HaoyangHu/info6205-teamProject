@@ -7,19 +7,43 @@ import java.util.Arrays;
 
 public class TimeSort {
     static String[][] names;
-    static int len;
 
-    public static void init() {
-        len = NameData.len;
+
+    public static void sort(int len){
+        String arr[][] = new NameData().getNamesArray();
         names = new String[len][2];
-        for (int i = 0; i < len; i++) {
-            names[i][0] = NameData.namesArray[i][0];
-            names[i][1] = NameData.namesArray[i][1];
+        if(len <= 1000000){
+            for(int i = 0; i < len; i++){
+                names[i][0] = arr[i][0];
+                names[i][1] = arr[i][1];
+            }
+        }else{
+            if(len == 2000000){
+                for(int i = 0; i < 1000000; i++){
+                    names[i][0] = arr[i][0];
+                    names[i][1] = arr[i][1];
+                }
+                for(int i = 1000000; i < 2000000; i++){
+                    names[i][0] = arr[i - 1000000][0];
+                    names[i][1] = arr[i - 1000000][1];
+                }
+            }else{
+                for(int i = 0; i < 1000000; i++){
+                    names[i][0] = arr[i][0];
+                    names[i][1] = arr[i][1];
+                }
+                for(int i = 1000000; i < 2000000; i++){
+                    names[i][0] = arr[i - 1000000][0];
+                    names[i][1] = arr[i - 1000000][1];
+                }
+                for(int i = 2000000; i < 4000000; i++){
+                    names[i][0] = names[i - 2000000][0];
+                    names[i][1] = names[i - 2000000][1];
+                }
+            }
         }
-
+        sort(names, len);
     }
-
-
     static int MIN_MERGE = 32;
 
     public static int minRunLength(int n) {
@@ -126,10 +150,9 @@ public class TimeSort {
     }
 
         public static void main(String[] args){
-            init();
-            System.out.println("Start sorting");
-            sort(names, names.length);
 
+            System.out.println("Start sorting");
+            sort(4000000);
             printArray(names, names.length);
         }
 

@@ -18,15 +18,56 @@ public class LSDsort {
         map = MakeMSD.getMap();
         R = map.size() + 1;
     }
-    public static void init(){
-        len = NameData.len;
+
+    public static void sort(int len){
+        String arr[][] = new NameData().getNamesArray();
         names = new String[len];
-        for(int i = 0; i < len; i++){
-            names[i] = NameData.namesArray[i][1];
-            maxLen = Math.max(maxLen, names[i].length());
+        if(len <= 1000000){
+            for(int i = 0; i < len; i++){
+                names[i] = arr[i][1];
+                maxLen = Math.max(names[i].length(), maxLen);
+            }
+            for(int i = 0; i < len; i++){
+                while(names[i].length() < maxLen){
+                    names[i] += " ";
+                }
+            }
+        }else{
+            if(len == 2000000){
+                for(int i = 0; i < 1000000; i++){
+                    names[i] = arr[i][1];
+                    maxLen = Math.max(names[i].length(), maxLen);
+                }
+                for(int i = 1000000; i < 2000000; i++){
+                    names[i] = arr[i - 1000000][1];
+                    maxLen = Math.max(names[i].length(), maxLen);
+                }
+                for(int i = 0; i < len; i++){
+                    while(names[i].length() < maxLen){
+                        names[i] += " ";
+                    }
+                }
+            }else{
+                for(int i = 0; i < 1000000; i++){
+                    names[i] = arr[i][1];
+                    maxLen = Math.max(names[i].length(), maxLen);
+                }
+                for(int i = 1000000; i < 2000000; i++){
+                    names[i] = arr[i - 1000000][1];
+                }
+                for(int i = 2000000; i < 4000000; i++){
+                    names[i] = names[i - 2000000];
+                }
+                for(int i = 0; i < len; i++){
+                    while(names[i].length() < maxLen){
+                        names[i] += " ";
+                    }
+                }
+            }
         }
-        for(int i = 0; i < len; i++) while(names[i].length() < maxLen) names[i] += " ";
+        sort(names);
     }
+
 
     public static void sort(String[] a, int w) {
         int n = a.length;
@@ -62,8 +103,7 @@ public class LSDsort {
     }
 
     public static void main(String[] args) {
-        init();
-        sort(names, maxLen);
+        sort(4000000);
         for(String s : names){
             System.out.println(s);
         }
