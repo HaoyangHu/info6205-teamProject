@@ -8,8 +8,7 @@ import java.util.Arrays;
 public class TimeSort {
     static String[][] names;
 
-
-    public static void sort(int len){
+    public static void init(int len){
         String arr[][] = new NameData().getNamesArray();
         names = new String[len][2];
         if(len <= 1000000){
@@ -42,6 +41,10 @@ public class TimeSort {
                 }
             }
         }
+    }
+
+    public static void sort(int len){
+        init(len);
         sort(names, len);
     }
     static int MIN_MERGE = 32;

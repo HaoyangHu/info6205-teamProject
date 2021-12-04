@@ -16,7 +16,8 @@ public class ThreeWayStringQuicksort {
         map = MakeMSD.getMap();
         R = map.size();
     }
-    public static void sort(int len){
+
+    public static void init(int len){
         String arr[][] = new NameData().getNamesArray();
         names = new String[len];
         if(len <= 1000000){
@@ -43,6 +44,10 @@ public class ThreeWayStringQuicksort {
                 }
             }
         }
+    }
+
+    public static void sort(int len){
+        init(len);
         sort(names);
     }
 

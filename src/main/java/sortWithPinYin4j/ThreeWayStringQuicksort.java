@@ -9,7 +9,7 @@ public class ThreeWayStringQuicksort {
     static String[][] names;
     static int len;
 
-    public static void sort(int len){
+    public static void init(int len){
         String arr[][] = new NameData().getNamesArray();
         names = new String[len][2];
         if(len <= 1000000){
@@ -42,6 +42,10 @@ public class ThreeWayStringQuicksort {
                 }
             }
         }
+    }
+
+    public static void sort(int len){
+       init(len);
         sort(names, 0, len - 1, 0);
     }
 

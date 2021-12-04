@@ -12,7 +12,7 @@ public class TimSort {
     static String[] names;
     static int len;
 
-    public static void sort(int len){
+    public static void init(int len){
         String arr[][] = new NameData().getNamesArray();
         names = new String[len];
         if(len <= 1000000){
@@ -39,6 +39,10 @@ public class TimSort {
                 }
             }
         }
+    }
+
+    public static void sort(int len){
+        init(len);
         sort(names, len);
     }
 

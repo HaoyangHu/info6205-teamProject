@@ -17,7 +17,8 @@ public class HuskySortImplementation {
     static Node[] nodeNames;
 
     static QuickHuskySort<Node> sorter;
-    public static void sort(int len){
+
+    public static void init(int len){
         try {
             config = Config.load(HuskySortImplementation.class);
         } catch (IOException e) {
@@ -56,6 +57,10 @@ public class HuskySortImplementation {
             }
 
         }
+    }
+
+    public static void sort(int len){
+       init(len);
        sort(nodeNames);
     }
     public static void sort(Node[] node){

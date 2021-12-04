@@ -8,7 +8,7 @@ public class LSDsort {
     static int len;
     static int maxLen = 0;
 
-    public static void sort(int len){
+    public static void init(int len){
         names = new String[len][2];
         String[][] arr = new NameData().getNamesArray();
         if(len <= 1000000){
@@ -49,6 +49,10 @@ public class LSDsort {
                 for(int i = 0; i < len; i++) while(names[i][0].length() < maxLen) names[i][0] += " ";
             }
         }
+    }
+
+    public static void sort(int len){
+        init(len);
         sort(names);
     }
 
