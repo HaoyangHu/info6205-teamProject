@@ -5,7 +5,7 @@ By sorting with collactor, we use a String array to store names.<br>
 <a href= https://github.com/carlruan/info6205-teamProject/blob/master/report/INFO6205-FinalReport.docx> Final report </a><br>
 <a href= https://github.com/carlruan/info6205-teamProject/blob/master/report/Paper%20report.docx> Paper report </a><br>
 <a href= https://github.com/carlruan/info6205-teamProject/blob/master/report/code%20report.docx> Code modification and implementaion</a><br>
-<a href=https://github.com/carlruan/info6205-teamProject/blob/master/report/firstThousandWords.txt> First 1000 words </a><br>
+<a href=https://github.com/carlruan/info6205-teamProject/tree/master/report/thousandWords> First 1000 words. </a>!Collator sort won't sort correctly!<br>
 <a href=https://github.com/carlruan/info6205-teamProject/blob/master/report/Benchmark%26UnitTest.docx> Bechmark and unit tests </a><br>
 
 # MSD radix sort
