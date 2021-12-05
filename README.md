@@ -2,7 +2,7 @@
 
 By sorting with pinyin4j, we use a two-dimensional string array to contians names and their pinyin expression.<br>
 By sorting with collactor, we use a String array to store names.<br>
-<a = https://github.com/carlruan/info6205-teamProject/blob/master/report/INFO6205-FinalReport.docx> Final report </a>
+<a href= https://github.com/carlruan/info6205-teamProject/blob/master/report/INFO6205-FinalReport.docx> Final report </a>
 
 
 # MSD radix sort
