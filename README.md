@@ -1,7 +1,9 @@
 # info6205-teamProject
 
-By sorting with pinyin4j, we use a two-dimensional string array to contians names and their pinyin expression.
-By sorting with collactor, we use a String array to store names.
+By sorting with pinyin4j, we use a two-dimensional string array to contians names and their pinyin expression.<br>
+By sorting with collactor, we use a String array to store names.<br>
+Final reports<https://github.com/carlruan/info6205-teamProject/blob/master/report/INFO6205-FinalReport.docx>
+
 
 # MSD radix sort
 By using Collator class, it’s difficult to define a proper charAt() method to return the char of a Chinese word. In order to solve this problem, we designed a map to keep each Chinese word and their order.
