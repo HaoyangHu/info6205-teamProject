@@ -46,6 +46,7 @@ public class DualPivotQuickSort {
     }
 
     public static void sort(Comparable[] a) {
+        shuffle(a);
         sort(a, 0, a.length - 1);
     }
     private static void sort(Comparable[] a, int lo, int hi) {

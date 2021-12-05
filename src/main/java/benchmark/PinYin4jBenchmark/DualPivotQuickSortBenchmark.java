@@ -15,7 +15,7 @@ public class DualPivotQuickSortBenchmark {
 
         for (int i = 0; i < 8; i++) {
 
-            Benchmark_Timer benchmark_timer = new Benchmark_Timer(" 500K test: ", null , (t)-> sortWithPinYin4j.DualPivotQuickSort.sort(5000000), null );
+            Benchmark_Timer benchmark_timer = new Benchmark_Timer(" 500K test: ", null , (t)-> sortWithPinYin4j.DualPivotQuickSort.sort(500000), null );
             System.out.println(benchmark_timer.run(true, 10));
         }
 
