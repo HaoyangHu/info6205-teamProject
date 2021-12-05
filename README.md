@@ -6,7 +6,7 @@ By sorting with collactor, we use a String array to store names.<br>
 <a href= https://github.com/carlruan/info6205-teamProject/blob/master/report/Paper%20report.docx> Paper report </a><br>
 <a href= https://github.com/carlruan/info6205-teamProject/blob/master/report/code%20report.docx> Code modification and implementaion</a><br>
 <a href=https://github.com/carlruan/info6205-teamProject/blob/master/report/firstThousandWords.txt> First 1000 words </a><br>
-
+<a href=https://github.com/carlruan/info6205-teamProject/blob/master/report/Benchmark%26UnitTest.docx> Bechmark and unit tests </a><br>
 
 # MSD radix sort
 By using Collator class, it’s difficult to define a proper charAt() method to return the char of a Chinese word. In order to solve this problem, we designed a map to keep each Chinese word and their order.<br>
