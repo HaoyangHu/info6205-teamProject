@@ -46,7 +46,7 @@ public class DualPivotQuickSort {
     }
 
     public static void sort(Comparable[] a) {
-        shuffle(a);
+        //shuffle(a);
         sort(a, 0, a.length - 1);
     }
     private static void sort(Comparable[] a, int lo, int hi) {
@@ -87,12 +87,10 @@ public class DualPivotQuickSort {
 
     public static void main(String[] args) {
 
-        sort(4000000);
+        sort(1000000);
 
-        for(String n : names){
-            System.out.println(n);
-
-
+        for(int i = 0; i < 1000; i++){
+            System.out.println(names[i]);
         }
         //System.out.println(IsSorted.isSorted(names));
     }

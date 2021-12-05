@@ -115,8 +115,9 @@ public class ThreeWayStringQuicksort {
     public static void main(String[] args) {
 
         sort(1000000);
-
-        System.out.println(IsSorted.isSorted(names));
+        for(int i = 0; i < 1000; i++){
+            System.out.println(names[i][1]);
+        }
 
     }
 

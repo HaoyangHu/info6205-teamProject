@@ -86,9 +86,9 @@ public class HuskySortImplementation {
     public static void main(String[] args) throws IOException {
 
         System.out.println("begin sorting");
-        sort(4000000);
-        for(Node n : nodeNames){
-            System.out.println(n);
+        sort(1000000);
+        for(int i = 0; i < 1000; i++){
+            System.out.println(nodeNames[i]);
         }
     }
     public static class Node implements HuskySortable<Node> {

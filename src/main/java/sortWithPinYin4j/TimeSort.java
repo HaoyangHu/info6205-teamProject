@@ -147,7 +147,7 @@ public class TimeSort {
 
     public static void printArray(String[][] arr, int n) {
         for (int i = 0; i < n; i++) {
-            System.out.print(arr[i][1] + " ");
+            System.out.println(arr[i][1] + " ");
         }
         System.out.print("\n");
     }
@@ -155,8 +155,8 @@ public class TimeSort {
         public static void main(String[] args){
 
             System.out.println("Start sorting");
-            sort(4000000);
-            printArray(names, names.length);
+            sort(1000000);
+            printArray(names, 1000);
         }
 
 }

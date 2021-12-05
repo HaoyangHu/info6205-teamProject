@@ -947,3 +947,4 @@
 2021-12-05 04:18:34 INFO  Benchmark_Timer - Begin run: test1  with 100 runs
 2021-12-05 04:28:31 DEBUG Config - Config.get(helper, instrument) = false
 2021-12-04 09:02:56 DEBUG Config - Config.get(helper, instrument) = false
+2021-12-05 15:03:06 DEBUG Config - Config.get(helper, instrument) = false

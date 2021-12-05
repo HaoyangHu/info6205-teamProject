@@ -125,7 +125,7 @@ public class MSDradixSort {
 
 
     public static void main(String[] args) {
-        sort(100000);
+        sort(1000000);
 
         for(int i = 0; i < 1000; i++){
             System.out.println(names[i][1]);

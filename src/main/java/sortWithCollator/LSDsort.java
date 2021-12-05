@@ -107,9 +107,9 @@ public class LSDsort {
     }
 
     public static void main(String[] args) {
-        sort(4000000);
-        for(String s : names){
-            System.out.println(s);
+        sort(1000000);
+        for(int i = 0; i < 1000; i++){
+            System.out.println(names[i]);
         }
 
     }
